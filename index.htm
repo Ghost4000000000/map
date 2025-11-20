@@ -61,6 +61,7 @@
               "properties": {
                 'name': "my first popup",
                 'description': "I broke my elbow and came to this hospital :()",
+                'image': "img/hospital.jpeg",
               }
             },
             {
@@ -72,6 +73,7 @@
               "properties": {
                 'name': "my 2nd popup",
                 'description': "This is my church I go too",
+                'image': "img/Unknown.jpeg",
               }
             },
             {
@@ -83,6 +85,7 @@
               "properties": {
                 'name': "my 3rd popup",
                 'description': "CCPA the school i go too",
+                'image': "img/school.jpeg",
               }
             }
           ]
@@ -107,12 +110,12 @@
           const coordinates = e.feature.geometry.coordinates.slice();
           const name = e.feature.properties.name;
           const description = e.feature.properties.description;
-          // const image = e.feature.properties.image;
+          const image = e.feature.properties.image;
 
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML("<strong>" + name + "</strong><br/>" + description)
-            // .setHTML("<img src='" + image + "'><br><strong>" + name + "</strong><br/>" + description)
+            .setHTML("<img src='" + image + "'><br><strong>" + name + "</strong><br/>" + description)
             .addTo(map);
         }
       });
